@@ -307,7 +307,11 @@ export default function Home() {
         html { scroll-behavior: smooth; }
       `}</style>
     </div>
+    
   );
+
 }
+
+
 
 
