@@ -288,7 +288,7 @@ export default function Home() {
                 <p className="text-2xl font-black text-white">info@viajesenoha.com</p>
               </div>
               <div className="flex gap-10">
-                <a href="#" className="font-black hover:text-green-500 transition-colors text-white text-xs tracking-widest">INSTAGRAM</a>
+                <a href="https://www.instagram.com/viajes_enoha" target="_blank" rel="noopener noreferrer" className="font-black hover:text-green-500 transition-colors text-white text-xs tracking-widest">INSTAGRAM</a>
                 <a href="#" className="font-black hover:text-green-500 transition-colors text-white text-xs tracking-widest">FACEBOOK</a>
               </div>
             </div>
