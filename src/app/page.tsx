@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from 'react';
 
 const heroImages = [
-  "/WhatsApp Image 2026-03-30 at 19.55.07.jpeg",
-  "/WhatsApp Image 2026-03-30 at 19.55.36.jpeg",
-  "/WhatsApp Image 2026-03-30 at 19.55.10.jpeg",
-  "/WhatsApp Image 2026-03-30 at 19.54.53.jpeg"
+  "/WhatsApp_Image_2026-03-30_at_19.55.07.jpeg",
+  "/WhatsApp_Image_2026-03-30_at_19.55.36.jpeg",
+  "/WhatsApp_Image_2026-03-30_at_19.55.10.jpeg",
+  "/WhatsApp_Image_2026-03-30_at_19.54.53.jpeg"
 ];
 
 const features = [
@@ -18,9 +18,9 @@ const features = [
 
 const galleryImages = [
   { url: "/playa1.jpeg", title: "Playas de Aleñá", category: "Playas" },
-  { url: "/catedral malabo.jpeg", title: "Catedral de Malabo", category: "Cultura" },
-  { url: "/cascada ureka.jpeg", title: "Cascadas de Ureka", category: "Naturaleza" },
-  { url: "/aventuras en un cayuco.jpeg", title: "Travesía en Cayuco", category: "Aventura" },
+  { url: "/catedral_malabo.jpeg", title: "Catedral de Malabo", category: "Cultura" },
+  { url: "/cascada_ureka.jpeg", title: "Cascadas de Ureka", category: "Naturaleza" },
+  { url: "/aventuras_en_un_cayuco.jpeg", title: "Travesía en Cayuco", category: "Aventura" },
   { url: "/gastronomia.jpeg", title: "Sabores Locales", category: "Gastronomía" },
   { url: "/paseo_maritimo.jpeg", title: "Paseo Marítimo de Malabo", category: "Ciudad" },
   { url: "/cacao.jpeg", title: "Tradición del Cacao", category: "Cultura" },
@@ -248,8 +248,8 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-12">
             {[
-              { name: "Isla de Bioko", img: "/WhatsApp Image 2026-03-30 at 19.55.51.jpeg", theme: "COLONIAL VIBE" },
-              { name: "Región Continental", img: "/plaza bata.jpeg", theme: "OCEAN PULSE" },
+              { name: "Isla de Bioko", img: "/WhatsApp_Image_2026-03-30_at_19.55.51.jpeg", theme: "COLONIAL VIBE" },
+              { name: "Región Continental", img: "/plaza_bata.jpeg", theme: "OCEAN PULSE" },
               { name: "Playas de Aleñá", img: "/playa4.jpeg", theme: "PARADISE SOUL" }
             ].map((d, i) => (
               <div key={i} className="group cursor-pointer">
@@ -307,7 +307,7 @@ export default function Home() {
         html { scroll-behavior: smooth; }
       `}</style>
     </div>
-    
+
   );
 
 }
