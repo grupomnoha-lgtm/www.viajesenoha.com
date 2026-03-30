@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from 'react';
 
 const heroImages = [
-  "/WhatsApp_Image_2026-03-30_at_19.55.07.jpeg",
-  "/WhatsApp_Image_2026-03-30_at_19.55.36.jpeg",
-  "/WhatsApp_Image_2026-03-30_at_19.55.10.jpeg",
-  "/WhatsApp_Image_2026-03-30_at_19.54.53.jpeg"
+  "/amanecer.jpeg",
+  "/corisco.jpeg",
+  "/cascada_ureka.jpeg",
+  "/plaza_bata.jpeg"
 ];
 
 const features = [
