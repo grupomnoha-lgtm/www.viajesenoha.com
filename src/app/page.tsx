@@ -32,6 +32,7 @@ const fashionImages = [
   "/moda1.jpeg", "/moda2.jpeg", "/moda3.jpeg", "/moda4.jpeg"
 ];
 
+export default function Home() {
   const [currentImage, setCurrentImage] = useState(0);
   const [selectedGalleryIdx, setSelectedGalleryIdx] = useState(0);
   const [scrolled, setScrolled] = useState(false);
