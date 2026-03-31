@@ -36,6 +36,76 @@ export default function Home() {
   const [currentImage, setCurrentImage] = useState(0);
   const [selectedGalleryIdx, setSelectedGalleryIdx] = useState(0);
   const [scrolled, setScrolled] = useState(false);
+  const [currentLang, setCurrentLang] = useState('ES');
+  const [isLangOpen, setIsLangOpen] = useState(false);
+
+  const languages = [
+    { code: 'ES', name: 'Español', flag: '🇪🇸' },
+    { code: 'EN', name: 'English', flag: '🇺🇸' },
+    { code: 'FR', name: 'Français', flag: '🇫🇷' },
+    { code: 'ZH', name: '中文', flag: '🇨🇳' },
+    { code: 'RU', name: 'Русский', flag: '🇷🇺' }
+  ];
+
+  const translations = {
+    ES: {
+      destinos: "Destinos",
+      galeria: "Galería",
+      aventuras: "Aventuras",
+      reservar: "Reservar Viaje",
+      bienvenidos: "Bienvenidos al Corazón de África",
+      guinea: "GUINEA",
+      ecuatorial: "ECUATORIAL",
+      descubrir: "DESCUBRIR DESTINOS",
+      heroDesc: "Siente la magia de la última frontera salvaje de África. Selvas esmeralda, playas de cristal y una cultura que late."
+    },
+    EN: {
+      destinos: "Destinations",
+      galeria: "Gallery",
+      aventuras: "Adventures",
+      reservar: "Book a Trip",
+      bienvenidos: "Welcome to the Heart of Africa",
+      guinea: "EQUATORIAL",
+      ecuatorial: "GUINEA",
+      descubrir: "DISCOVER DESTINATIONS",
+      heroDesc: "Feel the magic of Africa's last wild frontier. Emerald jungles, crystal beaches, and a culture that beats."
+    },
+    FR: {
+      destinos: "Destinations",
+      galeria: "Galerie",
+      aventuras: "Aventures",
+      reservar: "Réserver un Voyage",
+      bienvenidos: "Bienvenue au Cœur de l'Afrique",
+      guinea: "GUINÉE",
+      ecuatorial: "ÉQUATORIALE",
+      descubrir: "DÉCOUVRIR LES DESTINATIONS",
+      heroDesc: "Ressentez la magie de la dernière frontière sauvage d'Afrique. Jungles d'émeraude, plages de cristal et culture vibrante."
+    },
+    ZH: {
+      destinos: "目的地",
+      galeria: "画廊",
+      aventuras: "冒险",
+      reservar: "预订行程",
+      bienvenidos: "欢迎来到非洲中心",
+      guinea: "赤道",
+      ecuatorial: "几内亚",
+      descubrir: "发现目的地",
+      heroDesc: "感受非洲最后一片原始边界的魔力。翡翠般的丛林，水晶般的海滩，以及跳动的文化。"
+    },
+    RU: {
+      destinos: "Направления",
+      galeria: "Галерея",
+      aventuras: "Приключения",
+      reservar: "Забронировать тур",
+      bienvenidos: "Добро пожаловать в сердце Африки",
+      guinea: "ЭКВАТОРИАЛЬНАЯ",
+      ecuatorial: "ГВИНЕЯ",
+      descubrir: "ОТКРЫТЬ НАПРАВЛЕНИЯ",
+      heroDesc: "Почувствуйте магию последнего дикого рубежа Африки. Смарагдовые джунгли, кристальные пляжи и живая культура."
+    }
+  };
+
+  const t = translations[currentLang as keyof typeof translations];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -73,15 +143,50 @@ export default function Home() {
             <ul className={`flex space-x-10 text-sm font-bold uppercase tracking-widest transition-colors ${
               scrolled ? 'text-slate-600' : 'text-white/90'
             }`}>
-              <li><a href="#destinos" className="hover:text-green-500 transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-green-500 after:transition-all hover:after:w-full">Destinos</a></li>
-              <li><a href="#galeria" className="hover:text-green-500 transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-green-500 after:transition-all hover:after:w-full">Galería</a></li>
-              <li><a href="#aventuras" className="hover:text-green-500 transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-green-500 after:transition-all hover:after:w-full">Aventuras</a></li>
+              <li><a href="#destinos" className="hover:text-green-500 transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-green-500 after:transition-all hover:after:w-full">{t.destinos}</a></li>
+              <li><a href="#galeria" className="hover:text-green-500 transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-green-500 after:transition-all hover:after:w-full">{t.galeria}</a></li>
+              <li><a href="#aventuras" className="hover:text-green-500 transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-green-500 after:transition-all hover:after:w-full">{t.aventuras}</a></li>
             </ul>
           </nav>
 
-          <a href="#contacto" className="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-xl shadow-green-500/20 active:scale-95 transition-all">
-            Reservar Viaje
-          </a>
+          <div className="flex items-center gap-4">
+            {/* Selector de Idiomas */}
+            <div className="relative">
+              <button 
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all border ${
+                  scrolled 
+                    ? 'bg-slate-100 border-slate-200 text-slate-700 hover:bg-slate-200' 
+                    : 'bg-white/10 border-white/20 text-white hover:bg-white/20'
+                }`}
+              >
+                <span>{languages.find(l => l.code === currentLang)?.flag}</span>
+                <span>{currentLang}</span>
+              </button>
+
+              {isLangOpen && (
+                <div className="absolute top-full right-0 mt-2 w-40 bg-white shadow-2xl rounded-2xl overflow-hidden border border-slate-100 animate-in fade-in slide-in-from-top-2">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        setCurrentLang(lang.code);
+                        setIsLangOpen(false);
+                      }}
+                      className="w-full flex items-center gap-3 px-4 py-3 hover:bg-green-50 text-slate-700 text-xs font-medium border-b border-slate-50 last:border-none transition-colors"
+                    >
+                      <span className="text-lg">{lang.flag}</span>
+                      <span>{lang.name}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <a href="#contacto" className="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-xl shadow-green-500/20 active:scale-95 transition-all">
+              {t.reservar}
+            </a>
+          </div>
         </div>
       </header>
 
@@ -105,17 +210,17 @@ export default function Home() {
         
         <div className="relative z-20 text-center px-4 max-w-5xl">
           <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-white text-xs font-black uppercase tracking-[0.3em] mb-6 border border-white/20 select-none shadow-2xl">
-            Bienvenidos al Corazón de África
+            {t.bienvenidos}
           </span>
           <h2 className="text-7xl md:text-9xl font-black text-white mb-8 tracking-tighter leading-[0.8] drop-shadow-2xl">
-            GUINEA <br/> <span className="text-green-400">ECUATORIAL</span>
+            {t.guinea} <br/> <span className="text-green-400">{t.ecuatorial}</span>
           </h2>
           <p className="text-lg md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-lg">
-            Siente la magia de la última frontera salvaje de África. Selvas esmeralda, playas de cristal y una cultura que late.
+            {t.heroDesc}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <a href="#destinos" className="group relative bg-white text-green-900 px-10 py-5 rounded-2xl text-lg font-black shadow-2xl transition-all hover:shadow-white/20 hover:scale-105 active:scale-95 overflow-hidden">
-              <span className="relative z-10">DESCUBRIR DESTINOS</span>
+              <span className="relative z-10 uppercase">{t.descubrir}</span>
             </a>
           </div>
         </div>
