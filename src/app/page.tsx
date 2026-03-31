@@ -248,7 +248,7 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-12">
             {[
-              { name: "Isla de Bioko", img: "/WhatsApp_Image_2026-03-30_at_19.55.51.jpeg", theme: "COLONIAL VIBE" },
+              { name: "Isla de Bioko", img: "/catedral_malabo.jpeg", theme: "COLONIAL VIBE" },
               { name: "Región Continental", img: "/plaza_bata.jpeg", theme: "OCEAN PULSE" },
               { name: "Playas de Aleñá", img: "/playa4.jpeg", theme: "PARADISE SOUL" }
             ].map((d, i) => (
