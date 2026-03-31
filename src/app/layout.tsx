@@ -13,7 +13,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Viajes Enoha | Turismo en Guinea Ecuatorial - Malabo, Bata, Corisco",
+  title: {
+    default: "Viajes Enoha | Turismo en Guinea Ecuatorial",
+    template: "%s | Viajes Enoha",
+  },
   description: "Descubre Guinea Ecuatorial con Viajes Enoha. Expertos en turismo en Malabo, Bata, Isla de Bioko y Annobón. Reservas de viajes, safaris y aventuras africanas.",
   keywords: ["viajar a Guinea Ecuatorial", "turismo Guinea Ecuatorial", "Malabo", "Bata", "Isla de Bioko", "playas de Corisco", "Viajes Enoha", "mejores viajes África"],
   authors: [{ name: "Viajes Enoha" }],
