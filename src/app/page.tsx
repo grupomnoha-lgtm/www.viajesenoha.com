@@ -32,7 +32,6 @@ const fashionImages = [
   "/moda1.jpeg", "/moda2.jpeg", "/moda3.jpeg", "/moda4.jpeg"
 ];
 
-export default function Home() {
   const [currentImage, setCurrentImage] = useState(0);
   const [selectedGalleryIdx, setSelectedGalleryIdx] = useState(0);
   const [scrolled, setScrolled] = useState(false);
@@ -49,65 +48,212 @@ export default function Home() {
 
   const translations = {
     ES: {
-      destinos: "Destinos",
-      galeria: "Galería",
-      aventuras: "Aventuras",
+      nav: { destinos: "Destinos", galeria: "Galería", aventuras: "Aventuras", contacto: "Contacto" },
       reservar: "Reservar Viaje",
-      bienvenidos: "Bienvenidos al Corazón de África",
-      guinea: "GUINEA",
-      ecuatorial: "ECUATORIAL",
-      descubrir: "DESCUBRIR DESTINOS",
-      heroDesc: "Siente la magia de la última frontera salvaje de África. Selvas esmeralda, playas de cristal y una cultura que late."
+      hero: {
+        tag: "Bienvenidos al Corazón de África",
+        title1: "GUINEA",
+        title2: "ECUATORIAL",
+        desc: "Siente la magia de la última frontera salvaje de África. Selvas esmeralda, playas de cristal y una cultura que late.",
+        cta: "DESCUBRIR DESTINOS"
+      },
+      features: {
+        tag: "¿Por qué con nosotros?",
+        title1: "Redefiniendo el",
+        title2: "Lujo Salvaje.",
+        desc: "En Viajes Enoha no solo organizamos viajes, creamos legados visuales y memorias imborrables.",
+        items: [
+          { title: "Naturaleza Pura", desc: "Ecosistemas intactos y especies endémicas fascinantes." },
+          { title: "Cultura e Historia", desc: "Un puente único entre África y la herencia hispana." },
+          { title: "Gastronomía Local", desc: "Saborea los pescados del Atlántico y especias africanas." },
+          { title: "Seguridad y Confianza", desc: "Guías expertos y traslados seguros en todo el país." }
+        ]
+      },
+      gallery: {
+        tag: "Exploración Visual",
+        title1: "EL ALMA DE",
+        title2: "GUINEA.",
+        desc: "Selecciona una imagen para explorar los detalles de nuestra tierra a través del visor interactivo."
+      },
+      imprescindibles: {
+        title: "LOS IMPRESCINDIBLES",
+        explore: "Explorar Guía"
+      },
+      footer: {
+        title1: "HABLEMOS",
+        title2: "AHORA.",
+        desc: "Tu próxima historia épica comienza con un simple hola. Estamos listos para guiarte."
+      }
     },
     EN: {
-      destinos: "Destinations",
-      galeria: "Gallery",
-      aventuras: "Adventures",
+      nav: { destinos: "Destinations", galeria: "Gallery", aventuras: "Adventures", contacto: "Contact" },
       reservar: "Book a Trip",
-      bienvenidos: "Welcome to the Heart of Africa",
-      guinea: "EQUATORIAL",
-      ecuatorial: "GUINEA",
-      descubrir: "DISCOVER DESTINATIONS",
-      heroDesc: "Feel the magic of Africa's last wild frontier. Emerald jungles, crystal beaches, and a culture that beats."
+      hero: {
+        tag: "Welcome to the Heart of Africa",
+        title1: "EQUATORIAL",
+        title2: "GUINEA",
+        desc: "Feel the magic of Africa's last wild frontier. Emerald jungles, crystal beaches, and a culture that beats.",
+        cta: "DISCOVER DESTINATIONS"
+      },
+      features: {
+        tag: "Why Us?",
+        title1: "Redefining",
+        title2: "Wild Luxury.",
+        desc: "At Viajes Enoha we don't just organize trips, we create visual legacies and indelible memories.",
+        items: [
+          { title: "Pure Nature", desc: "Intact ecosystems and fascinating endemic species." },
+          { title: "Culture & History", desc: "A unique bridge between Africa and Hispanic heritage." },
+          { title: "Local Gastronomy", desc: "Savor Atlantic fish and African spices." },
+          { title: "Safety & Trust", desc: "Expert guides and safe transfers throughout the country." }
+        ]
+      },
+      gallery: {
+        tag: "Visual Exploration",
+        title1: "THE SOUL OF",
+        title2: "GUINEA.",
+        desc: "Select an image to explore the details of our land through the interactive viewer."
+      },
+      imprescindibles: {
+        title: "THE MUST-SEES",
+        explore: "Explore Guide"
+      },
+      footer: {
+        title1: "LET'S TALK",
+        title2: "NOW.",
+        desc: "Your next epic story begins with a simple hello. We are ready to guide you."
+      }
     },
     FR: {
-      destinos: "Destinations",
-      galeria: "Galerie",
-      aventuras: "Aventures",
+      nav: { destinos: "Destinations", galeria: "Galerie", aventuras: "Aventures", contacto: "Contact" },
       reservar: "Réserver un Voyage",
-      bienvenidos: "Bienvenue au Cœur de l'Afrique",
-      guinea: "GUINÉE",
-      ecuatorial: "ÉQUATORIALE",
-      descubrir: "DÉCOUVRIR LES DESTINATIONS",
-      heroDesc: "Ressentez la magie de la dernière frontière sauvage d'Afrique. Jungles d'émeraude, plages de cristal et culture vibrante."
+      hero: {
+        tag: "Bienvenue au Cœur de l'Afrique",
+        title1: "GUINÉE",
+        title2: "ÉQUATORIALE",
+        desc: "Ressentez la magie de la dernière frontière sauvage d'Afrique. Jungles d'émeraude, plages de cristal et culture vibrante.",
+        cta: "DÉCOUVRIR LES DESTINATIONS"
+      },
+      features: {
+        tag: "Pourquoi Nous ?",
+        title1: "Redéfinir le",
+        title2: "Luxe Sauvage.",
+        desc: "Chez Viajes Enoha, nous n'organisons pas seulement des voyages, nous créons des héritages visuels et des souvenirs indélébiles.",
+        items: [
+          { title: "Nature Pure", desc: "Écosystèmes intacts et espèces endémiques fascinantes." },
+          { title: "Culture et Histoire", desc: "Un pont unique entre l'Afrique et l'héritage hispanique." },
+          { title: "Gastronomie Locale", desc: "Savourez les poissons de l'Atlantique et las épices africaines." },
+          { title: "Sécurité et Confiance", desc: "Guides experts et transferts sûrs dans tout le pays." }
+        ]
+      },
+      gallery: {
+        tag: "Exploration Visuelle",
+        title1: "L'ÂME DE LA",
+        title2: "GUINÉE.",
+        desc: "Sélectionnez une image pour explorer les détails de notre terre via le visionneur interactif."
+      },
+      imprescindibles: {
+        title: "LES INCONTOURNABLES",
+        explore: "Explorer le Guide"
+      },
+      footer: {
+        title1: "PARLONS",
+        title2: "MAINTENANT.",
+        desc: "Votre prochain récit épique commence par un simple bonjour. Nous sommes prêts à vous guider."
+      }
     },
     ZH: {
-      destinos: "目的地",
-      galeria: "画廊",
-      aventuras: "冒险",
+      nav: { destinos: "目的地", galeria: "画廊", aventuras: "冒险", contacto: "联系" },
       reservar: "预订行程",
-      bienvenidos: "欢迎来到非洲中心",
-      guinea: "赤道",
-      ecuatorial: "几内亚",
-      descubrir: "发现目的地",
-      heroDesc: "感受非洲最后一片原始边界的魔力。翡翠般的丛林，水晶般的海滩，以及跳动的文化。"
+      hero: {
+        tag: "欢迎来到非洲中心",
+        title1: "赤道",
+        title2: "几内亚",
+        desc: "感受非洲最后一片原始边界的魔力。翡翠般的丛林，水晶般的海滩，以及跳动的文化。",
+        cta: "发现目的地"
+      },
+      features: {
+        tag: "为什么选择我们？",
+        title1: "重新定义",
+        title2: "野性奢华。",
+        desc: "在 Viajes Enoha，我们不仅组织旅行，还创造视觉遗产和不可磨灭的回忆。",
+        items: [
+          { title: "纯净自然", desc: "完整的生态系统和迷人的特有物种。" },
+          { title: "文化与历史", desc: "非洲与西班牙遗产之间的独特桥梁。" },
+          { title: "当地美食", desc: "品尝大西洋鱼类和非洲香料。" },
+          { title: "安全与信任", desc: "专家导游和全国范围内的安全转运。" }
+        ]
+      },
+      gallery: {
+        tag: "视觉探索",
+        title1: "灵魂之",
+        title2: "几内亚。",
+        desc: "选择一张图片，通过互动查看器探索我们土地的细节。"
+      },
+      imprescindibles: {
+        title: "必看景点",
+        explore: "探索指南"
+      },
+      footer: {
+        title1: "现在",
+        title2: "谈谈。",
+        desc: "您的下一个史诗般的故事从一个简单的问候开始。我们准备好为您提供指导。"
+      }
     },
     RU: {
-      destinos: "Направления",
-      galeria: "Галерея",
-      aventuras: "Приключения",
+      nav: { destinos: "Направления", galeria: "Галерея", aventuras: "Приключения", contacto: "Контакты" },
       reservar: "Забронировать тур",
-      bienvenidos: "Добро пожаловать в сердце Африки",
-      guinea: "ЭКВАТОРИАЛЬНАЯ",
-      ecuatorial: "ГВИНЕЯ",
-      descubrir: "ОТКРЫТЬ НАПРАВЛЕНИЯ",
-      heroDesc: "Почувствуйте магию последнего дикого рубежа Африки. Смарагдовые джунгли, кристальные пляжи и живая культура."
+      hero: {
+        tag: "Добро пожаловать в сердце Африки",
+        title1: "ЭКВАТОРИАЛЬНАЯ",
+        title2: "ГВИНЕЯ",
+        desc: "Почувствуйте магию последнего дикого рубежа Африки. Смарагдовые джунгли, кристальные пляжи и живая культура.",
+        cta: "ОТКРЫТЬ НАПРАВЛЕНИЯ"
+      },
+      features: {
+        tag: "Почему мы?",
+        title1: "Переосмысление",
+        title2: "дикой роскоши.",
+        desc: "В Viajes Enoha мы не просто организуем поездки, мы создаем визуальное наследие и незабываемые воспоминания.",
+        items: [
+          { title: "Чистая природа", desc: "Тронутые экосистемы и увлекательные эндемичные виды." },
+          { title: "Культура и история", desc: "Уникальный мост между Африкой и испанским наследием." },
+          { title: "Местная гастрономия", desc: "Попробуйте атлантическую рыбу и африканские специи." },
+          { title: "Безопасность и доверие", desc: "Экспертные гиды и безопасные трансферты по всей стране." }
+        ]
+      },
+      gallery: {
+        tag: "Визуальное исследование",
+        title1: "ДУША",
+        title2: "ГВИНЕИ.",
+        desc: "Выберите изображение, чтобы изучить детали нашей земли через интерактивный вьюер."
+      },
+      imprescindibles: {
+        title: "ОБЯЗАТЕЛЬНО К ПОСЕЩЕНИЮ",
+        explore: "Исследовать гид"
+      },
+      footer: {
+        title1: "ДАВАЙТЕ",
+        title2: "ПОГОВОРИМ.",
+        desc: "Ваша следующая эпическая история начинается с простого привета. Мы готовы направить вас."
+      }
     }
   };
 
   const t = translations[currentLang as keyof typeof translations];
 
   useEffect(() => {
+    // Detect browser language and set as default if not manually changed
+    const savedLang = localStorage.getItem('userLang');
+    if (savedLang) {
+      setCurrentLang(savedLang);
+    } else {
+      const browserLang = navigator.language.split('-')[0].toUpperCase();
+      const supportedLangs = ['ES', 'EN', 'FR', 'ZH', 'RU'];
+      if (supportedLangs.includes(browserLang)) {
+        setCurrentLang(browserLang);
+      }
+    }
+
     const timer = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % heroImages.length);
     }, 6000);
@@ -122,6 +268,12 @@ export default function Home() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const changeLang = (code: string) => {
+    setCurrentLang(code);
+    localStorage.setItem('userLang', code);
+    setIsLangOpen(false);
+  };
 
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 font-sans selection:bg-green-200 selection:text-green-900 overflow-x-hidden">
@@ -143,9 +295,9 @@ export default function Home() {
             <ul className={`flex space-x-10 text-sm font-bold uppercase tracking-widest transition-colors ${
               scrolled ? 'text-slate-600' : 'text-white/90'
             }`}>
-              <li><a href="#destinos" className="hover:text-green-500 transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-green-500 after:transition-all hover:after:w-full">{t.destinos}</a></li>
-              <li><a href="#galeria" className="hover:text-green-500 transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-green-500 after:transition-all hover:after:w-full">{t.galeria}</a></li>
-              <li><a href="#aventuras" className="hover:text-green-500 transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-green-500 after:transition-all hover:after:w-full">{t.aventuras}</a></li>
+              <li><a href="#destinos" className="hover:text-green-500 transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-green-500 after:transition-all hover:after:w-full">{t.nav.destinos}</a></li>
+              <li><a href="#galeria" className="hover:text-green-500 transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-green-500 after:transition-all hover:after:w-full">{t.nav.galeria}</a></li>
+              <li><a href="#aventuras" className="hover:text-green-500 transition-colors relative after:absolute after:-bottom-1 after:left-0 after:w-0 after:h-0.5 after:bg-green-500 after:transition-all hover:after:w-full">{t.nav.aventuras}</a></li>
             </ul>
           </nav>
 
@@ -169,10 +321,7 @@ export default function Home() {
                   {languages.map((lang) => (
                     <button
                       key={lang.code}
-                      onClick={() => {
-                        setCurrentLang(lang.code);
-                        setIsLangOpen(false);
-                      }}
+                      onClick={() => changeLang(lang.code)}
                       className="w-full flex items-center gap-3 px-4 py-3 hover:bg-green-50 text-slate-700 text-xs font-medium border-b border-slate-50 last:border-none transition-colors"
                     >
                       <span className="text-lg">{lang.flag}</span>
@@ -210,17 +359,17 @@ export default function Home() {
         
         <div className="relative z-20 text-center px-4 max-w-5xl">
           <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-white text-xs font-black uppercase tracking-[0.3em] mb-6 border border-white/20 select-none shadow-2xl">
-            {t.bienvenidos}
+            {t.hero.tag}
           </span>
           <h2 className="text-7xl md:text-9xl font-black text-white mb-8 tracking-tighter leading-[0.8] drop-shadow-2xl">
-            {t.guinea} <br/> <span className="text-green-400">{t.ecuatorial}</span>
+            {t.hero.title1} <br/> <span className="text-green-400">{t.hero.title2}</span>
           </h2>
           <p className="text-lg md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-lg">
-            {t.heroDesc}
+            {t.hero.desc}
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <a href="#destinos" className="group relative bg-white text-green-900 px-10 py-5 rounded-2xl text-lg font-black shadow-2xl transition-all hover:shadow-white/20 hover:scale-105 active:scale-95 overflow-hidden">
-              <span className="relative z-10 uppercase">{t.descubrir}</span>
+              <span className="relative z-10 uppercase">{t.hero.cta}</span>
             </a>
           </div>
         </div>
@@ -238,11 +387,11 @@ export default function Home() {
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
             <div className="max-w-xl">
-              <h3 className="text-sm font-black text-green-600 uppercase tracking-widest mb-4">¿Por qué con nosotros?</h3>
-              <h4 className="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter leading-none">Redefiniendo el <br/> <span className="text-slate-400">Lujo Salvaje.</span></h4>
+              <h3 className="text-sm font-black text-green-600 uppercase tracking-widest mb-4">{t.features.tag}</h3>
+              <h4 className="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter leading-none">{t.features.title1} <br/> <span className="text-slate-400">{t.features.title2}</span></h4>
             </div>
             <p className="text-slate-500 font-medium max-w-xs leading-relaxed">
-              En Viajes Enoha no solo organizamos viajes, creamos legados visuales y memorias imborrables.
+              {t.features.desc}
             </p>
           </div>
 
@@ -250,8 +399,8 @@ export default function Home() {
             {features.map((f, i) => (
               <div key={i} className="group bg-white p-10 rounded-[2.5rem] border border-slate-100 hover:border-green-500/30 shadow-none hover:shadow-2xl hover:shadow-green-500/10 transition-all duration-500 hover:-translate-y-2 text-slate-900">
                 <div className="text-5xl mb-8 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500 block w-fit">{f.icon}</div>
-                <h5 className="text-xl font-black text-slate-900 mb-4">{f.title}</h5>
-                <p className="text-slate-500 font-medium leading-relaxed">{f.desc}</p>
+                <h5 className="text-xl font-black text-slate-900 mb-4">{t.features.items[i].title}</h5>
+                <p className="text-slate-500 font-medium leading-relaxed">{t.features.items[i].desc}</p>
               </div>
             ))}
           </div>
@@ -262,11 +411,11 @@ export default function Home() {
       <section id="galeria" className="py-32 bg-slate-900 overflow-hidden">
         <div className="container mx-auto px-6 mb-16 flex flex-col md:flex-row justify-between items-end gap-10">
            <div>
-              <h3 className="text-sm font-black text-green-500 uppercase tracking-[0.4em] mb-4">Exploración Visual</h3>
-              <h4 className="text-5xl md:text-7xl font-black text-white tracking-tighter">EL ALMA DE <br/> <span className="text-outline italic">GUINEA.</span></h4>
+              <h3 className="text-sm font-black text-green-500 uppercase tracking-[0.4em] mb-4">{t.gallery.tag}</h3>
+              <h4 className="text-5xl md:text-7xl font-black text-white tracking-tighter">{t.gallery.title1} <br/> <span className="text-outline italic">{t.gallery.title2}</span></h4>
            </div>
            <p className="text-slate-400 max-w-sm font-medium leading-relaxed">
-             Selecciona una imagen para explorar los detalles de nuestra tierra a través del visor interactivo.
+             {t.gallery.desc}
            </p>
         </div>
         
@@ -347,7 +496,7 @@ export default function Home() {
       <section id="destinos" className="py-32 px-4 bg-white relative">
         <div className="container mx-auto">
           <div className="text-center mb-20">
-            <h3 className="text-6xl md:text-8xl font-black text-slate-900 tracking-tighter mb-4">LOS IMPRESCINDIBLES</h3>
+            <h3 className="text-6xl md:text-8xl font-black text-slate-900 tracking-tighter mb-4">{t.imprescindibles.title}</h3>
             <div className="w-32 h-2 bg-green-500 mx-auto rounded-full"></div>
           </div>
 
@@ -367,7 +516,7 @@ export default function Home() {
                    </div>
                 </div>
                 <button className="flex items-center gap-4 text-slate-900 group-hover:text-green-600 font-black tracking-widest uppercase transition-colors">
-                  Explorar Guía <span className="w-12 h-0.5 bg-slate-900 group-hover:bg-green-600 transition-all duration-500 group-hover:w-20"></span>
+                  {t.imprescindibles.explore} <span className="w-12 h-0.5 bg-slate-900 group-hover:bg-green-600 transition-all duration-500 group-hover:w-20"></span>
                 </button>
               </div>
             ))}
@@ -380,8 +529,8 @@ export default function Home() {
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-20 mb-40">
             <div>
-              <h4 className="text-6xl md:text-8xl font-black tracking-tighter mb-10 leading-none">HABLEMOS <br/> <span className="text-green-500 italic underline decoration-1">AHORA.</span></h4>
-              <p className="text-slate-400 text-xl font-medium max-w-md">Tu próxima historia épica comienza con un simple hola. Estamos listos para guiarte.</p>
+              <h4 className="text-6xl md:text-8xl font-black tracking-tighter mb-10 leading-none">{t.footer.title1} <br/> <span className="text-green-500 italic underline decoration-1">{t.footer.title2}</span></h4>
+              <p className="text-slate-400 text-xl font-medium max-w-md">{t.footer.desc}</p>
             </div>
             <div className="flex flex-col justify-end space-y-10">
               <div className="border-b border-white/10 pb-6 group cursor-pointer hover:border-green-500 transition-colors text-white">
