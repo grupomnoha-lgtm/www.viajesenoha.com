@@ -38,8 +38,6 @@ export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [currentLang, setCurrentLang] = useState('ES');
   const [isLangOpen, setIsLangOpen] = useState(false);
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', destination: 'Bioko', message: '' });
 
   const languages = [
     { code: 'ES', name: 'Español', flag: '🇪🇸' },
@@ -278,13 +276,6 @@ export default function Home() {
     setIsLangOpen(false);
   };
 
-  const handleBookingSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const mailtoUrl = `mailto:enohatours@gmail.com?subject=Nueva Reserva de ${formData.name}&body=Nombre: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0ADestino: ${formData.destination}%0D%0AMensaje: ${formData.message}`;
-    window.location.href = mailtoUrl;
-    setIsBookingOpen(false);
-  };
-
   return (
     <div className="flex flex-col min-h-screen bg-slate-50 font-sans selection:bg-green-200 selection:text-green-900 overflow-x-hidden">
       {/* Dynamic Header */}
@@ -342,85 +333,12 @@ export default function Home() {
               )}
             </div>
 
-            <button 
-              onClick={() => setIsBookingOpen(true)}
-              className="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-xl shadow-green-500/20 active:scale-95 transition-all"
-            >
+            <a href="#contacto" className="bg-green-600 hover:bg-green-700 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-xl shadow-green-500/20 active:scale-95 transition-all">
               {t.reservar}
-            </button>
+            </a>
           </div>
         </div>
       </header>
-
-      {/* Booking Modal */}
-      {isBookingOpen && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm animate-in fade-in duration-300">
-          <div className="bg-white w-full max-w-lg rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative animate-in zoom-in-95 duration-300">
-            <button 
-              onClick={() => setIsBookingOpen(false)}
-              className="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition-colors text-2xl"
-            >✕</button>
-            
-            <h3 className="text-3xl font-black text-slate-900 mb-2 tracking-tighter">Reservar Viaje</h3>
-            <p className="text-slate-500 mb-8 font-medium">Completa los detalles para tu próxima aventura.</p>
-            
-            <form onSubmit={handleBookingSubmit} className="space-y-5">
-              <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Nombre Completo</label>
-                <input 
-                  required
-                  type="text" 
-                  className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all"
-                  placeholder="Tu nombre..."
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                />
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Email</label>
-                  <input 
-                    required
-                    type="email" 
-                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all"
-                    placeholder="tu@email.com"
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  />
-                </div>
-                <div>
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Destino de Interés</label>
-                  <select 
-                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all appearance-none"
-                    onChange={(e) => setFormData({...formData, destination: e.target.value})}
-                  >
-                    <option>Isla de Bioko</option>
-                    <option>Región Continental</option>
-                    <option>Playas de Aleñá</option>
-                    <option>Otros</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Mensaje o Requisitos</label>
-                <textarea 
-                  rows={4}
-                  className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all resize-none"
-                  placeholder="Cuéntanos más sobre tus fechas o preferencias..."
-                  onChange={(e) => setFormData({...formData, message: e.target.value})}
-                ></textarea>
-              </div>
-
-              <button 
-                type="submit"
-                className="w-full bg-green-600 hover:bg-green-700 text-white py-5 rounded-2xl text-lg font-black shadow-xl shadow-green-500/20 active:scale-95 transition-all mt-4 uppercase tracking-widest"
-              >
-                Enviar Reserva
-              </button>
-            </form>
-          </div>
-        </div>
-      )}
 
       {/* Hero Ultra Modern Slider */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -451,12 +369,9 @@ export default function Home() {
             {t.hero.desc}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center">
-            <button 
-              onClick={() => setIsBookingOpen(true)}
-              className="w-full sm:w-auto group relative bg-white text-green-900 px-8 md:px-10 py-4 md:py-5 rounded-2xl text-base md:text-lg font-black shadow-2xl transition-all hover:shadow-white/20 hover:scale-105 active:scale-95 overflow-hidden text-center"
-            >
+            <a href="#destinos" className="w-full sm:w-auto group relative bg-white text-green-900 px-8 md:px-10 py-4 md:py-5 rounded-2xl text-base md:text-lg font-black shadow-2xl transition-all hover:shadow-white/20 hover:scale-105 active:scale-95 overflow-hidden text-center">
               <span className="relative z-10 uppercase">{t.hero.cta}</span>
-            </button>
+            </a>
           </div>
         </div>
 
