@@ -86,6 +86,21 @@ export default function Home() {
         title1: "HABLEMOS",
         title2: "AHORA.",
         desc: "Tu próxima historia épica comienza con un simple hola. Estamos listos para guiarte."
+      },
+      booking: {
+        title: "Reservar Viaje",
+        subtitle: "Completa los detalles para tu próxima aventura.",
+        name: "Nombre Completo",
+        namePlaceholder: "Tu nombre...",
+        email: "Email",
+        emailPlaceholder: "tu@email.com",
+        destination: "Destino de Interés",
+        message: "Mensaje o Requisitos",
+        messagePlaceholder: "Cuéntanos más sobre tus fechas o preferencias...",
+        submit: "Enviar Reserva",
+        sending: "Enviando...",
+        successTitle: "¡Mensaje Enviado!",
+        successDesc: "Te contactaremos muy pronto. ¡Gracias!"
       }
     },
     EN: {
@@ -124,6 +139,21 @@ export default function Home() {
         title1: "LET'S TALK",
         title2: "NOW.",
         desc: "Your next epic story begins with a simple hello. We are ready to guide you."
+      },
+      booking: {
+        title: "Book a Trip",
+        subtitle: "Complete the details for your next adventure.",
+        name: "Full Name",
+        namePlaceholder: "Your name...",
+        email: "Email",
+        emailPlaceholder: "you@email.com",
+        destination: "Destination of Interest",
+        message: "Message or Requirements",
+        messagePlaceholder: "Tell us more about your dates or preferences...",
+        submit: "Send Booking",
+        sending: "Sending...",
+        successTitle: "Message Sent!",
+        successDesc: "We will contact you very soon. Thank you!"
       }
     },
     FR: {
@@ -162,6 +192,21 @@ export default function Home() {
         title1: "PARLONS",
         title2: "MAINTENANT.",
         desc: "Votre prochain récit épique commence par un simple bonjour. Nous sommes prêts à vous guider."
+      },
+      booking: {
+        title: "Réserver un Voyage",
+        subtitle: "Complétez les détails de votre prochaine aventure.",
+        name: "Nom Complet",
+        namePlaceholder: "Votre nom...",
+        email: "E-mail",
+        emailPlaceholder: "votre@email.com",
+        destination: "Destination d'intérêt",
+        message: "Message ou Exigences",
+        messagePlaceholder: "Dites-nous en plus sur vos dates ou préférences...",
+        submit: "Envoyer la réservation",
+        sending: "Envoi en cours...",
+        successTitle: "Message envoyé !",
+        successDesc: "Nous vous contacterons très prochainement. Merci !"
       }
     },
     ZH: {
@@ -200,6 +245,21 @@ export default function Home() {
         title1: "现在",
         title2: "谈谈。",
         desc: "您的下一个史诗般的故事从一个简单的问候开始。我们准备好为您提供指导。"
+      },
+      booking: {
+        title: "预订行程",
+        subtitle: "填写下一次冒险的详细信息。",
+        name: "姓名",
+        namePlaceholder: "您的姓名...",
+        email: "电子邮件",
+        emailPlaceholder: "your@email.com",
+        destination: "感兴趣的目的地",
+        message: "信息或要求",
+        messagePlaceholder: "告诉我们更多关于您的日期或偏好的信息...",
+        submit: "发送预订",
+        sending: "发送中...",
+        successTitle: "信息已发送！",
+        successDesc: "我们将很快与您联系。谢谢！"
       }
     },
     RU: {
@@ -238,6 +298,21 @@ export default function Home() {
         title1: "ДАВАЙТЕ",
         title2: "ПОГОВОРИМ.",
         desc: "Ваша следующая эпическая история начинается с простого привета. Мы готовы направить вас."
+      },
+      booking: {
+        title: "Забронировать тур",
+        subtitle: "Заполните детали для вашего следующего приключения.",
+        name: "Полное имя",
+        namePlaceholder: "Ваше имя...",
+        email: "Электронная почта",
+        emailPlaceholder: "your@email.com",
+        destination: "Интересующее направление",
+        message: "Сообщение или пожелания",
+        messagePlaceholder: "Расскажите нам о датах или предпочтениях...",
+        submit: "Отправить заявку",
+        sending: "Отправка...",
+        successTitle: "Сообщение отправлено!",
+        successDesc: "Мы свяжемся с вами очень скоро. Спасибо!"
       }
     }
   };
@@ -386,61 +461,61 @@ export default function Home() {
               className="absolute top-6 right-6 text-slate-400 hover:text-slate-900 transition-colors text-2xl"
             >✕</button>
             
-            <h3 className="text-3xl font-black text-slate-900 mb-2 tracking-tighter">Reservar Viaje</h3>
-            <p className="text-slate-500 mb-8 font-medium">Completa los detalles para tu próxima aventura.</p>
+            <h3 className="text-3xl font-black text-slate-900 mb-2 tracking-tighter">{t.booking.title}</h3>
+            <p className="text-slate-500 mb-8 font-medium">{t.booking.subtitle}</p>
             
             {formStatus === 'success' ? (
               <div className="py-12 text-center animate-in fade-in zoom-in-95">
                 <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-4xl mx-auto mb-6">✓</div>
-                <h4 className="text-2xl font-black text-slate-900 mb-2">¡Mensaje Enviado!</h4>
-                <p className="text-slate-500">Te contactaremos muy pronto. ¡Gracias!</p>
+                <h4 className="text-2xl font-black text-slate-900 mb-2">{t.booking.successTitle}</h4>
+                <p className="text-slate-500">{t.booking.successDesc}</p>
               </div>
             ) : (
               <form onSubmit={handleBookingSubmit} className="space-y-5">
                 <div>
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Nombre Completo</label>
+                  <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">{t.booking.name}</label>
                   <input 
                     required
                     name="nombre"
                     type="text" 
                     className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all"
-                    placeholder="Tu nombre..."
+                    placeholder={t.booking.namePlaceholder}
                   />
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Email</label>
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">{t.booking.email}</label>
                     <input 
                       required
                       name="email"
                       type="email" 
                       className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all"
-                      placeholder="tu@email.com"
+                      placeholder={t.booking.emailPlaceholder}
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Destino de Interés</label>
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">{t.booking.destination}</label>
                     <select 
                       name="destino"
                       className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all appearance-none"
                     >
-                      <option value="Excursiones de día">Excursiones de día</option>
-                      <option value="Bioko en 5 días">Bioko en 5 días</option>
-                      <option value="La ruta de los orígenes">La ruta de los orígenes</option>
-                      <option value="Guinea en 7 días">Guinea en 7 días</option>
-                      <option value="Excursión personalizada">Excursión personalizada</option>
+                      <option value="Excursiones de día">{currentLang === 'ES' ? 'Excursiones de día' : (currentLang === 'FR' ? 'Excursions d\'une journée' : 'Day Trips')}</option>
+                      <option value="Bioko en 5 días">{currentLang === 'ES' ? 'Bioko en 5 días' : 'Bioko in 5 Days'}</option>
+                      <option value="La ruta de los orígenes">{currentLang === 'ES' ? 'La ruta de los orígenes' : 'The route of origins'}</option>
+                      <option value="Guinea en 7 días">{currentLang === 'ES' ? 'Guinea en 7 días' : 'Guinea in 7 Days'}</option>
+                      <option value="Excursión personalizada">{currentLang === 'ES' ? 'Excursión personalizada' : 'Custom Trip'}</option>
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Mensaje o Requisitos</label>
+                  <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">{t.booking.message}</label>
                   <textarea 
                     name="mensaje"
                     rows={4}
                     className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all resize-none"
-                    placeholder="Cuéntanos más sobre tus fechas o preferencias..."
+                    placeholder={t.booking.messagePlaceholder}
                   ></textarea>
                 </div>
 
@@ -451,7 +526,7 @@ export default function Home() {
                     formStatus === 'sending' ? 'bg-slate-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700 text-white shadow-green-500/20'
                   }`}
                 >
-                  {formStatus === 'sending' ? 'Enviando...' : 'Enviar Reserva'}
+                  {formStatus === 'sending' ? t.booking.sending : t.booking.submit}
                 </button>
               </form>
             )}
