@@ -425,10 +425,11 @@ export default function Home() {
                       name="destino"
                       className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all appearance-none"
                     >
-                      <option value="Bioko">Isla de Bioko</option>
-                      <option value="Continental">Región Continental</option>
-                      <option value="Aleña">Playas de Aleñá</option>
-                      <option value="Otros">Otros</option>
+                      <option value="Excursiones de día">Excursiones de día</option>
+                      <option value="Bioko en 5 días">Bioko en 5 días</option>
+                      <option value="La ruta de los orígenes">La ruta de los orígenes</option>
+                      <option value="Guinea en 7 días">Guinea en 7 días</option>
+                      <option value="Excursión personalizada">Excursión personalizada</option>
                     </select>
                   </div>
                 </div>
