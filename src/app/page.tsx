@@ -286,7 +286,7 @@ export default function Home() {
     const data = new FormData(form);
 
     try {
-      const response = await fetch("https://formspree.io/f/XXXXX", {
+      const response = await fetch("https://formspree.io/f/xvzvypgo", {
         method: "POST",
         body: data,
         headers: {
@@ -401,7 +401,7 @@ export default function Home() {
                   <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Nombre Completo</label>
                   <input 
                     required
-                    name="name"
+                    name="nombre"
                     type="text" 
                     className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all"
                     placeholder="Tu nombre..."
@@ -422,7 +422,7 @@ export default function Home() {
                   <div>
                     <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Destino de Interés</label>
                     <select 
-                      name="destination"
+                      name="destino"
                       className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all appearance-none"
                     >
                       <option value="Bioko">Isla de Bioko</option>
@@ -436,7 +436,7 @@ export default function Home() {
                 <div>
                   <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Mensaje o Requisitos</label>
                   <textarea 
-                    name="message"
+                    name="mensaje"
                     rows={4}
                     className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all resize-none"
                     placeholder="Cuéntanos más sobre tus fechas o preferencias..."
