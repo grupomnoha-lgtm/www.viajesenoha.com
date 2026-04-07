@@ -39,7 +39,7 @@ export default function Home() {
   const [currentLang, setCurrentLang] = useState('ES');
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [formData, setFormData] = useState({ name: '', email: '', destination: 'Bioko', message: '' });
+  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success'>('idle');
 
   const languages = [
     { code: 'ES', name: 'Español', flag: '🇪🇸' },
@@ -278,11 +278,36 @@ export default function Home() {
     setIsLangOpen(false);
   };
 
-  const handleBookingSubmit = (e: React.FormEvent) => {
+  const handleBookingSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const mailtoUrl = `mailto:enohatours@gmail.com?subject=Nueva Reserva de ${formData.name}&body=Nombre: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0ADestino: ${formData.destination}%0D%0AMensaje: ${formData.message}`;
-    window.location.href = mailtoUrl;
-    setIsBookingOpen(false);
+    setFormStatus('sending');
+    
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/XXXXX", {
+        method: "POST",
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.ok) {
+        setFormStatus('success');
+        setTimeout(() => {
+          setIsBookingOpen(false);
+          setFormStatus('idle');
+        }, 3000);
+      } else {
+        setFormStatus('idle');
+        alert("Hubo un error al enviar. Por favor, intenta de nuevo.");
+      }
+    } catch (error) {
+      setFormStatus('idle');
+      alert("Error de conexión. Revisa tu internet.");
+    }
   };
 
   return (
@@ -364,60 +389,71 @@ export default function Home() {
             <h3 className="text-3xl font-black text-slate-900 mb-2 tracking-tighter">Reservar Viaje</h3>
             <p className="text-slate-500 mb-8 font-medium">Completa los detalles para tu próxima aventura.</p>
             
-            <form onSubmit={handleBookingSubmit} className="space-y-5">
-              <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Nombre Completo</label>
-                <input 
-                  required
-                  type="text" 
-                  className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all"
-                  placeholder="Tu nombre..."
-                  onChange={(e) => setFormData({...formData, name: e.target.value})}
-                />
+            {formStatus === 'success' ? (
+              <div className="py-12 text-center animate-in fade-in zoom-in-95">
+                <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-4xl mx-auto mb-6">✓</div>
+                <h4 className="text-2xl font-black text-slate-900 mb-2">¡Mensaje Enviado!</h4>
+                <p className="text-slate-500">Te contactaremos muy pronto. ¡Gracias!</p>
               </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            ) : (
+              <form onSubmit={handleBookingSubmit} className="space-y-5">
                 <div>
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Email</label>
+                  <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Nombre Completo</label>
                   <input 
                     required
-                    type="email" 
+                    name="name"
+                    type="text" 
                     className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all"
-                    placeholder="tu@email.com"
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                    placeholder="Tu nombre..."
                   />
                 </div>
-                <div>
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Destino de Interés</label>
-                  <select 
-                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all appearance-none"
-                    onChange={(e) => setFormData({...formData, destination: e.target.value})}
-                  >
-                    <option>Isla de Bioko</option>
-                    <option>Región Continental</option>
-                    <option>Playas de Aleñá</option>
-                    <option>Otros</option>
-                  </select>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Email</label>
+                    <input 
+                      required
+                      name="email"
+                      type="email" 
+                      className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all"
+                      placeholder="tu@email.com"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Destino de Interés</label>
+                    <select 
+                      name="destination"
+                      className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all appearance-none"
+                    >
+                      <option value="Bioko">Isla de Bioko</option>
+                      <option value="Continental">Región Continental</option>
+                      <option value="Aleña">Playas de Aleñá</option>
+                      <option value="Otros">Otros</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
 
-              <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Mensaje o Requisitos</label>
-                <textarea 
-                  rows={4}
-                  className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all resize-none"
-                  placeholder="Cuéntanos más sobre tus fechas o preferencias..."
-                  onChange={(e) => setFormData({...formData, message: e.target.value})}
-                ></textarea>
-              </div>
+                <div>
+                  <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">Mensaje o Requisitos</label>
+                  <textarea 
+                    name="message"
+                    rows={4}
+                    className="w-full bg-slate-50 border border-slate-100 rounded-2xl px-5 py-4 text-slate-900 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all resize-none"
+                    placeholder="Cuéntanos más sobre tus fechas o preferencias..."
+                  ></textarea>
+                </div>
 
-              <button 
-                type="submit"
-                className="w-full bg-green-600 hover:bg-green-700 text-white py-5 rounded-2xl text-lg font-black shadow-xl shadow-green-500/20 active:scale-95 transition-all mt-4 uppercase tracking-widest"
-              >
-                Enviar Reserva
-              </button>
-            </form>
+                <button 
+                  type="submit"
+                  disabled={formStatus === 'sending'}
+                  className={`w-full py-5 rounded-2xl text-lg font-black shadow-xl active:scale-95 transition-all mt-4 uppercase tracking-widest ${
+                    formStatus === 'sending' ? 'bg-slate-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700 text-white shadow-green-500/20'
+                  }`}
+                >
+                  {formStatus === 'sending' ? 'Enviando...' : 'Enviar Reserva'}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       )}
