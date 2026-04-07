@@ -282,17 +282,17 @@ export default function Home() {
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 py-4 ${
         scrolled ? 'bg-white/80 backdrop-blur-xl shadow-lg border-b border-slate-200' : 'bg-transparent'
       }`}>
-        <div className="container mx-auto flex justify-between items-center">
+        <div className="container mx-auto flex justify-between items-center px-4">
           <div className="flex items-center gap-2 group cursor-pointer">
             <div className="bg-green-600 p-2 rounded-xl group-hover:rotate-12 transition-transform shadow-lg">
-              <span className="text-white text-xl font-black">VE</span>
+              <span className="text-white text-lg md:text-xl font-black">VE</span>
             </div>
-            <h1 className={`text-2xl font-black tracking-tighter transition-colors ${
+            <h1 className={`text-xl md:text-2xl font-black tracking-tighter transition-colors ${
               scrolled ? 'text-green-900' : 'text-white'
             }`}>Viajes Enoha</h1>
           </div>
           
-          <nav className="hidden md:block">
+          <nav className="hidden lg:block">
             <ul className={`flex space-x-10 text-sm font-bold uppercase tracking-widest transition-colors ${
               scrolled ? 'text-slate-600' : 'text-white/90'
             }`}>
@@ -358,18 +358,18 @@ export default function Home() {
           </div>
         ))}
         
-        <div className="relative z-20 text-center px-4 max-w-5xl">
-          <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-white text-xs font-black uppercase tracking-[0.3em] mb-6 border border-white/20 select-none shadow-2xl">
+        <div className="relative z-20 text-center px-6 max-w-5xl">
+          <span className="inline-block px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full text-white text-[10px] md:text-xs font-black uppercase tracking-[0.2em] md:tracking-[0.3em] mb-6 border border-white/20 select-none shadow-2xl">
             {t.hero.tag}
           </span>
-          <h2 className="text-7xl md:text-9xl font-black text-white mb-8 tracking-tighter leading-[0.8] drop-shadow-2xl">
+          <h2 className="text-5xl md:text-9xl font-black text-white mb-8 tracking-tighter leading-[0.9] md:leading-[0.8] drop-shadow-2xl">
             {t.hero.title1} <br/> <span className="text-green-400">{t.hero.title2}</span>
           </h2>
-          <p className="text-lg md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-lg">
+          <p className="text-base md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-lg">
             {t.hero.desc}
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <a href="#destinos" className="group relative bg-white text-green-900 px-10 py-5 rounded-2xl text-lg font-black shadow-2xl transition-all hover:shadow-white/20 hover:scale-105 active:scale-95 overflow-hidden">
+          <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center">
+            <a href="#destinos" className="w-full sm:w-auto group relative bg-white text-green-900 px-8 md:px-10 py-4 md:py-5 rounded-2xl text-base md:text-lg font-black shadow-2xl transition-all hover:shadow-white/20 hover:scale-105 active:scale-95 overflow-hidden text-center">
               <span className="relative z-10 uppercase">{t.hero.cta}</span>
             </a>
           </div>
@@ -384,24 +384,24 @@ export default function Home() {
       </section>
 
       {/* Modern Value Bento Grid */}
-      <section id="aventuras" className="py-32 px-4 relative text-slate-900">
+      <section id="aventuras" className="py-20 md:py-32 px-6 relative text-slate-900">
         <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 gap-8">
             <div className="max-w-xl">
-              <h3 className="text-sm font-black text-green-600 uppercase tracking-widest mb-4">{t.features.tag}</h3>
-              <h4 className="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter leading-none">{t.features.title1} <br/> <span className="text-slate-400">{t.features.title2}</span></h4>
+              <h3 className="text-xs md:text-sm font-black text-green-600 uppercase tracking-widest mb-4">{t.features.tag}</h3>
+              <h4 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter leading-none">{t.features.title1} <br/> <span className="text-slate-400">{t.features.title2}</span></h4>
             </div>
-            <p className="text-slate-500 font-medium max-w-xs leading-relaxed">
+            <p className="text-slate-500 font-medium max-w-xs leading-relaxed text-sm md:text-base">
               {t.features.desc}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
             {features.map((f, i) => (
-              <div key={i} className="group bg-white p-10 rounded-[2.5rem] border border-slate-100 hover:border-green-500/30 shadow-none hover:shadow-2xl hover:shadow-green-500/10 transition-all duration-500 hover:-translate-y-2 text-slate-900">
-                <div className="text-5xl mb-8 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500 block w-fit">{f.icon}</div>
-                <h5 className="text-xl font-black text-slate-900 mb-4">{t.features.items[i].title}</h5>
-                <p className="text-slate-500 font-medium leading-relaxed">{t.features.items[i].desc}</p>
+              <div key={i} className="group bg-white p-8 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-slate-100 hover:border-green-500/30 shadow-none hover:shadow-2xl hover:shadow-green-500/10 transition-all duration-500 hover:-translate-y-2 text-slate-900">
+                <div className="text-4xl md:text-5xl mb-6 md:mb-8 group-hover:scale-125 group-hover:rotate-12 transition-transform duration-500 block w-fit">{f.icon}</div>
+                <h5 className="text-lg md:text-xl font-black text-slate-900 mb-4">{t.features.items[i].title}</h5>
+                <p className="text-slate-500 font-medium leading-relaxed text-sm">{t.features.items[i].desc}</p>
               </div>
             ))}
           </div>
@@ -409,37 +409,37 @@ export default function Home() {
       </section>
 
       {/* Immersive Gallery Section */}
-      <section id="galeria" className="py-32 bg-slate-900 overflow-hidden">
-        <div className="container mx-auto px-6 mb-16 flex flex-col md:flex-row justify-between items-end gap-10">
+      <section id="galeria" className="py-20 md:py-32 bg-slate-900 overflow-hidden px-6">
+        <div className="container mx-auto mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
            <div>
-              <h3 className="text-sm font-black text-green-500 uppercase tracking-[0.4em] mb-4">{t.gallery.tag}</h3>
-              <h4 className="text-5xl md:text-7xl font-black text-white tracking-tighter">{t.gallery.title1} <br/> <span className="text-outline italic">{t.gallery.title2}</span></h4>
+              <h3 className="text-xs md:text-sm font-black text-green-500 uppercase tracking-[0.3em] md:tracking-[0.4em] mb-4">{t.gallery.tag}</h3>
+              <h4 className="text-4xl md:text-7xl font-black text-white tracking-tighter">{t.gallery.title1} <br/> <span className="text-outline italic">{t.gallery.title2}</span></h4>
            </div>
-           <p className="text-slate-400 max-w-sm font-medium leading-relaxed">
+           <p className="text-slate-400 max-w-sm font-medium leading-relaxed text-sm md:text-base">
              {t.gallery.desc}
            </p>
         </div>
         
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-12 gap-8 items-start">
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Main Viewer */}
-            <div className="lg:col-span-8 relative aspect-video rounded-[2.5rem] overflow-hidden shadow-2xl group border border-white/10 bg-black">
+            <div className="lg:col-span-8 relative aspect-[4/3] md:aspect-video rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-2xl group border border-white/10 bg-black">
               <img 
                 src={galleryImages[selectedGalleryIdx].url} 
                 alt={galleryImages[selectedGalleryIdx].title} 
                 className="w-full h-full object-cover transition-all duration-700 animate-in fade-in zoom-in-95"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex flex-col justify-end p-8 md:p-12">
-                <span className="text-green-400 font-black text-xs md:text-sm tracking-[0.3em] uppercase mb-4">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent flex flex-col justify-end p-6 md:p-12">
+                <span className="text-green-400 font-black text-[10px] md:text-sm tracking-[0.2em] md:tracking-[0.3em] uppercase mb-2 md:mb-4">
                   {galleryImages[selectedGalleryIdx].category}
                 </span>
-                <h5 className="text-white font-black text-3xl md:text-5xl tracking-tight mb-2">
+                <h5 className="text-white font-black text-2xl md:text-5xl tracking-tight mb-2">
                   {galleryImages[selectedGalleryIdx].title}
                 </h5>
               </div>
               
-              {/* Navigation Arrows on Viewer */}
-              <div className="absolute top-1/2 -translate-y-1/2 left-6 right-6 flex justify-between opacity-0 group-hover:opacity-100 transition-opacity">
+              {/* Navigation Arrows on Viewer (Desktop only) */}
+              <div className="absolute top-1/2 -translate-y-1/2 left-6 right-6 hidden md:flex justify-between opacity-0 group-hover:opacity-100 transition-opacity">
                 <button 
                   onClick={() => setSelectedGalleryIdx((prev) => (prev - 1 + galleryImages.length) % galleryImages.length)}
                   className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-green-600 transition-all"
@@ -456,22 +456,22 @@ export default function Home() {
             </div>
 
             {/* Selection Grid (Limited Height scrollable) */}
-            <div className="lg:col-span-4 h-full max-h-[500px] overflow-y-auto no-scrollbar pr-2 flex flex-col gap-4">
+            <div className="lg:col-span-4 h-full max-h-[400px] md:max-h-[500px] overflow-y-auto no-scrollbar pr-2 flex flex-col gap-4">
               {galleryImages.map((item, i) => (
                 <div 
                   key={i} 
                   onClick={() => setSelectedGalleryIdx(i)}
-                  className={`flex items-center gap-4 p-3 rounded-2xl cursor-pointer transition-all border-2 ${
+                  className={`flex items-center gap-4 p-3 rounded-xl md:rounded-2xl cursor-pointer transition-all border-2 ${
                     i === selectedGalleryIdx 
                     ? 'bg-green-600/20 border-green-500' 
                     : 'bg-white/5 border-transparent hover:bg-white/10'
                   }`}
                 >
-                  <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 shadow-lg">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-lg md:rounded-xl overflow-hidden flex-shrink-0 shadow-lg">
                     <img src={item.url} alt={item.title} className="w-full h-full object-cover" />
                   </div>
                   <div className="flex flex-col overflow-hidden">
-                    <span className="text-green-500 font-bold text-[10px] tracking-widest uppercase truncate">{item.category}</span>
+                    <span className="text-green-500 font-bold text-[9px] md:text-[10px] tracking-widest uppercase truncate">{item.category}</span>
                     <h6 className="text-white font-black text-sm md:text-md truncate">{item.title}</h6>
                   </div>
                 </div>
@@ -481,11 +481,11 @@ export default function Home() {
         </div>
 
         {/* Local Fashion/Vibe Section */}
-        <div className="container mx-auto px-6 mt-24 mb-10">
-          <h5 className="text-white font-black text-xl mb-8 tracking-[0.2em] uppercase">Vibe & Lifestyle</h5>
+        <div className="container mx-auto mt-20 md:mt-24 mb-10">
+          <h5 className="text-white font-black text-lg md:text-xl mb-8 tracking-[0.2em] uppercase">Vibe & Lifestyle</h5>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
              {fashionImages.map((img, i) => (
-               <div key={i} className="aspect-square rounded-3xl overflow-hidden group border border-white/5">
+               <div key={i} className="aspect-square rounded-2xl md:rounded-3xl overflow-hidden group border border-white/5">
                   <img src={img} alt="Estilo Local" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110" />
                </div>
              ))}
@@ -494,30 +494,30 @@ export default function Home() {
       </section>
 
       {/* Destinations Cards High Modern */}
-      <section id="destinos" className="py-32 px-4 bg-white relative">
+      <section id="destinos" className="py-20 md:py-32 px-6 bg-white relative">
         <div className="container mx-auto">
-          <div className="text-center mb-20">
-            <h3 className="text-6xl md:text-8xl font-black text-slate-900 tracking-tighter mb-4">{t.imprescindibles.title}</h3>
-            <div className="w-32 h-2 bg-green-500 mx-auto rounded-full"></div>
+          <div className="text-center mb-16 md:mb-20">
+            <h3 className="text-4xl md:text-8xl font-black text-slate-900 tracking-tighter mb-4 uppercase">{t.imprescindibles.title}</h3>
+            <div className="w-20 md:w-32 h-2 bg-green-500 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12">
             {[
               { name: "Isla de Bioko", img: "/catedral_malabo.jpeg", theme: "COLONIAL VIBE" },
               { name: "Región Continental", img: "/plaza_bata.jpeg", theme: "OCEAN PULSE" },
               { name: "Playas de Aleñá", img: "/playa4.jpeg", theme: "PARADISE SOUL" }
             ].map((d, i) => (
               <div key={i} className="group cursor-pointer">
-                <div className="relative aspect-[3/4] rounded-[3rem] overflow-hidden mb-8 shadow-2xl transition-all duration-700 group-hover:rounded-[1rem]">
+                <div className="relative aspect-[4/5] md:aspect-[3/4] rounded-[2rem] md:rounded-[3rem] overflow-hidden mb-6 md:mb-8 shadow-2xl transition-all duration-700 group-hover:rounded-[1rem]">
                    <img src={d.img} alt={d.name} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
-                   <div className="absolute bottom-10 left-10">
-                      <span className="text-green-400 font-bold tracking-widest text-xs uppercase mb-2 block">{d.theme}</span>
-                      <h4 className="text-4xl font-black text-white">{d.name}</h4>
+                   <div className="absolute bottom-8 md:bottom-10 left-8 md:left-10">
+                      <span className="text-green-400 font-bold tracking-widest text-[10px] md:text-xs uppercase mb-2 block">{d.theme}</span>
+                      <h4 className="text-3xl md:text-4xl font-black text-white">{d.name}</h4>
                    </div>
                 </div>
-                <button className="flex items-center gap-4 text-slate-900 group-hover:text-green-600 font-black tracking-widest uppercase transition-colors">
-                  {t.imprescindibles.explore} <span className="w-12 h-0.5 bg-slate-900 group-hover:bg-green-600 transition-all duration-500 group-hover:w-20"></span>
+                <button className="flex items-center gap-4 text-slate-900 group-hover:text-green-600 font-black tracking-widest text-xs md:text-sm uppercase transition-colors">
+                  {t.imprescindibles.explore} <span className="w-10 md:w-12 h-0.5 bg-slate-900 group-hover:bg-green-600 transition-all duration-500 group-hover:w-20"></span>
                 </button>
               </div>
             ))}
@@ -526,30 +526,30 @@ export default function Home() {
       </section>
 
       {/* Minimalist Tech Footer */}
-      <footer id="contacto" className="bg-slate-950 text-white pt-40 pb-10 px-6">
+      <footer id="contacto" className="bg-slate-950 text-white pt-24 md:pt-40 pb-10 px-6">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-2 gap-20 mb-40">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 mb-20 md:mb-40">
             <div>
-              <h4 className="text-6xl md:text-8xl font-black tracking-tighter mb-10 leading-none">{t.footer.title1} <br/> <span className="text-green-500 italic underline decoration-1">{t.footer.title2}</span></h4>
-              <p className="text-slate-400 text-xl font-medium max-w-md">{t.footer.desc}</p>
+              <h4 className="text-4xl md:text-8xl font-black tracking-tighter mb-8 md:mb-10 leading-none">{t.footer.title1} <br/> <span className="text-green-500 italic underline decoration-1">{t.footer.title2}</span></h4>
+              <p className="text-slate-400 text-lg md:text-xl font-medium max-w-md">{t.footer.desc}</p>
             </div>
-            <div className="flex flex-col justify-end space-y-10">
+            <div className="flex flex-col justify-end space-y-8 md:space-y-10">
               <div className="border-b border-white/10 pb-6 group cursor-pointer hover:border-green-500 transition-colors text-white">
-                <p className="text-xs text-white/40 uppercase tracking-widest mb-2 font-bold">WhatsApp & Contacto</p>
-                <p className="text-2xl font-black text-white">+240 555 913 303</p>
+                <p className="text-[10px] text-white/40 uppercase tracking-widest mb-2 font-bold">WhatsApp & Contacto</p>
+                <p className="text-xl md:text-2xl font-black text-white">+240 555 913 303</p>
               </div>
               <div className="border-b border-white/10 pb-6 group cursor-pointer hover:border-green-500 transition-colors text-white">
-                <p className="text-xs text-white/40 uppercase tracking-widest mb-2 font-bold">Email</p>
-                <p className="text-2xl font-black text-white">info@viajesenoha.com</p>
+                <p className="text-[10px] text-white/40 uppercase tracking-widest mb-2 font-bold">Email</p>
+                <p className="text-xl md:text-2xl font-black text-white">info@viajesenoha.com</p>
               </div>
-              <div className="flex gap-10">
-                <a href="https://www.instagram.com/viajes_enoha" target="_blank" rel="noopener noreferrer" className="font-black hover:text-green-500 transition-colors text-white text-xs tracking-widest">INSTAGRAM</a>
-                <a href="https://wa.me/240555913303" target="_blank" rel="noopener noreferrer" className="font-black hover:text-green-500 transition-colors text-white text-xs tracking-widest">WHATSAPP</a>
+              <div className="flex flex-wrap gap-6 md:gap-10">
+                <a href="https://www.instagram.com/viajes_enoha" target="_blank" rel="noopener noreferrer" className="font-black hover:text-green-500 transition-colors text-white text-[10px] md:text-xs tracking-widest">INSTAGRAM</a>
+                <a href="https://wa.me/240555913303" target="_blank" rel="noopener noreferrer" className="font-black hover:text-green-500 transition-colors text-white text-[10px] md:text-xs tracking-widest">WHATSAPP</a>
               </div>
             </div>
           </div>
           
-          <div className="flex flex-col md:flex-row justify-between items-center text-slate-600 text-[10px] font-black tracking-[0.3em] border-t border-white/5 pt-10">
+          <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4 text-slate-600 text-[8px] md:text-[10px] font-black tracking-[0.2em] md:tracking-[0.3em] border-t border-white/5 pt-10">
             <p>&copy; {new Date().getFullYear()} VIAJES ENOHA CORP.</p>
             <p>EL FUTURO DEL TURISMO AFRICANO.</p>
           </div>
