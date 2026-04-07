@@ -544,7 +544,7 @@ export default function Home() {
               </div>
               <div className="flex gap-10">
                 <a href="https://www.instagram.com/viajes_enoha" target="_blank" rel="noopener noreferrer" className="font-black hover:text-green-500 transition-colors text-white text-xs tracking-widest">INSTAGRAM</a>
-                <a href="#" className="font-black hover:text-green-500 transition-colors text-white text-xs tracking-widest">whatsapp</a>
+                <a href="https://wa.me/240555913303" target="_blank" rel="noopener noreferrer" className="font-black hover:text-green-500 transition-colors text-white text-xs tracking-widest">WHATSAPP</a>
               </div>
             </div>
           </div>
